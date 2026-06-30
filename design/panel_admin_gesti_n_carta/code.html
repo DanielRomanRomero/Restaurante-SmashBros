@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gesti\u00f3n Men\u00fa - Smash Bros Admin</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from Style Guidance -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#ffb59e",
+                    "inverse-surface": "#e5e2e1",
+                    "surface": "#131313",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#e2e2e2",
+                    "primary-container": "#ff571a",
+                    "secondary-container": "#feb700",
+                    "secondary-fixed-dim": "#ffba20",
+                    "surface-bright": "#393939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e6beb2",
+                    "surface-container-low": "#1c1b1b",
+                    "on-primary-fixed-variant": "#852400",
+                    "tertiary": "#c6c6c7",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-secondary-fixed": "#271900",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#909191",
+                    "on-tertiary": "#2f3131",
+                    "primary-fixed": "#ffdbd0",
+                    "on-primary-container": "#521300",
+                    "error-container": "#93000a",
+                    "on-secondary-container": "#6b4b00",
+                    "on-primary": "#5e1700",
+                    "inverse-on-surface": "#313030",
+                    "surface-dim": "#131313",
+                    "on-error": "#690005",
+                    "inverse-primary": "#ae3200",
+                    "surface-container-highest": "#353535",
+                    "outline-variant": "#5c4037",
+                    "on-secondary-fixed-variant": "#5e4200",
+                    "outline": "#ad897e",
+                    "on-primary-fixed": "#3a0b00",
+                    "on-background": "#e5e2e1",
+                    "primary-fixed-dim": "#ffb59e",
+                    "secondary-fixed": "#ffdea8",
+                    "on-secondary": "#412d00",
+                    "primary": "#ffb59e",
+                    "secondary": "#ffdb9d",
+                    "surface-container": "#20201f",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-tertiary-container": "#282a2a",
+                    "background": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-variant": "#353535"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-max-width": "1200px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-xl": ["Montserrat"],
+                    "price-display": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "800"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "price-display": ["22px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom Scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353535;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff571a;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-surface-container dark:bg-surface-container h-screen w-64 fixed left-0 top-0 shadow-xl border-r border-outline-variant flex flex-col p-unit gap-4 z-50 hidden md:flex">
+<!-- Header / Brand -->
+<div class="px-4 py-6 border-b border-outline-variant/30 mb-2">
+<h1 class="font-headline-md text-headline-md text-secondary-container tracking-tight">Panel Admin</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Smash Bros Burger</p>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-2 overflow-y-auto px-2">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300 ease-in-out hover:translate-x-1 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Reservas (Inactive) -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-300 ease-in-out hover:translate-x-1 group" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md text-label-md">Reservas</span>
+</a>
+<!-- Gesti\u00f3n Men\u00fa (Active - Exact Match) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold transition-all duration-300 ease-in-out hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md">Gesti\u00f3n Men\u00fa</span>
+</a>
+</nav>
+<!-- Footer / CTA -->
+<div class="mt-auto px-4 py-4 border-t border-outline-variant/30">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="Admin Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK4cb87fUN8oC3TZxDVIoGpxH7Q62NCimV9AbgIkO-XnD9EN6AaMsxzISCr-8ZIoV90uaTFL8s5GFQ-dBEom4JpXCFyJ3qHtp-5ROfbwpBr1ifaODjqbn-4Ro7Fe-Muobkpfr73WB5x1jWMXSdttaNYF5Mh5BYJWWPCqKgH6HNb_PqadYfWk5zeNmzA2FhfK7trvseRNemtzYzwjHvPCGXYjsYLuT7nOS-6B_ghXYTCnCJN_i43K618rzWEYg6t5bigBWncnys5qA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Admin User</span>
+<span class="text-xs text-on-surface-variant">admin@smashbros.com</span>
+</div>
+</div>
+<button class="w-full py-2 flex items-center justify-center gap-2 text-error hover:bg-error/10 rounded-lg transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">logout</span>
+                Cerrar Sesi\u00f3n
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 bg-background h-screen overflow-y-auto">
+<!-- Mobile Header (Visible only on mobile) -->
+<header class="md:hidden flex items-center justify-between p-margin-mobile border-b border-outline-variant/30 bg-surface/90 backdrop-blur-md sticky top-0 z-40">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-secondary-container">Men\u00fa</h1>
+</div>
+<button class="text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Gestor de Men\u00fa</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Administra las categor\u00edas y platos de Smash Bros.</p>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none border border-secondary-container text-secondary-container px-6 py-3 rounded hover:bg-secondary-container/10 transition-colors font-label-md text-label-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+                        Nueva Categor\u00eda
+                    </button>
+<button class="flex-1 md:flex-none bg-primary-container text-on-primary-container px-6 py-3 rounded font-label-md text-label-md font-bold hover:shadow-[0_4px_14px_0_rgba(255,87,26,0.39)] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2" onclick="openModal()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Nuevo Plato
+                    </button>
+</div>
+</div>
+<!-- Utilities Bar (Search & Filter) -->
+<div class="bg-surface-container rounded-xl p-4 mb-8 flex flex-col md:flex-row gap-4 border border-outline-variant/30 shadow-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-dim border-none rounded-lg py-3 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary-container font-body-md transition-shadow" placeholder="Buscar platos por nombre, ingrediente..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">Todos</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface hover:border-primary-container hover:text-primary-container transition-colors font-label-md text-label-md">Smash Burgers</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface hover:border-primary-container hover:text-primary-container transition-colors font-label-md text-label-md">Acompa\u00f1antes</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full border border-outline-variant text-on-surface hover:border-primary-container hover:text-primary-container transition-colors font-label-md text-label-md">Bebidas</button>
+</div>
+</div>
+<!-- Content Grid (Dishes) -->
+<div class="space-y-12">
+<!-- Category Section: Smash Burgers -->
+<section>
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-4 mb-6">
+<h3 class="font-headline-md text-headline-md text-secondary-container">Smash Burgers</h3>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold">4 Platos</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Dish Card 1 -->
+<div class="bg-[#252525] rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-outline-variant/20 group hover:border-primary-container/50 transition-colors flex flex-col h-full relative">
+<!-- Badge -->
+<div class="absolute top-4 left-4 bg-error text-on-error px-2 py-1 rounded text-xs font-bold uppercase tracking-wider z-10 shadow-sm">Hot</div>
+<!-- Image Area -->
+<div class="h-48 w-full bg-surface-dim relative overflow-hidden">
+<img alt="Classic Smash Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, professional food photography shot of a perfectly grilled smash burger with melted cheese, crispy edges, fresh lettuce, and tomato on a toasted brioche bun. The lighting is dramatic and moody, set against a dark urban background typical of high-end street food branding. The color palette emphasizes the rich browns of the meat, vibrant reds of the tomato, and golden yellow of the cheese, contrasting sharply with deep charcoal shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaX3JJ5wP2Sc3hWz8eWx1tsZF9phNtu949nwMy9S3OEBUf3qs-OEC8adu8JGAFihvDiXst377g2UCLfxaYPETI9U6mi20vDyqM03mUzhbgU1LXS24lIcaF0UNOlOkEobjxHG2k3WOd-EYGfLse1wHF7CdP_Q4o1NK0gWAil7hf6woTASiTfhuWJ5zmO0zsADGDs4ygS5VDMMsoa5sEDv__RTGIKJNimAUM-w0Fs1avLO86qXATA3_9j0Vvwl-jUMw7ZgE-4G_inSc"/>
+</div>
+<!-- Content Area -->
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Classic Smash</h4>
+<span class="font-price-display text-price-display text-secondary-container">$12.50</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 line-clamp-2">Doble carne 100% res (150g), doble queso cheddar americano, lechuga iceberg, tomate, cebolla morada y salsa secreta Smash Bros.</p>
+<div class="mt-auto flex justify-end gap-2 border-t border-outline-variant/20 pt-4">
+<button class="p-2 text-on-surface-variant hover:text-secondary-container transition-colors rounded hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error/10">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Card 2 -->
+<div class="bg-[#252525] rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-outline-variant/20 group hover:border-primary-container/50 transition-colors flex flex-col h-full relative">
+<!-- Badge -->
+<div class="absolute top-4 left-4 bg-secondary-container text-on-secondary-container px-2 py-1 rounded text-xs font-bold uppercase tracking-wider z-10 shadow-sm">Nuevo</div>
+<!-- Image Area -->
+<div class="h-48 w-full bg-surface-dim relative overflow-hidden">
+<img alt="Bacon Crunch Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A decadent double bacon cheeseburger dripping with artisanal sauce, presented on a dark, textured slate board. High-contrast, dramatic studio lighting highlights the crispy texture of the thick-cut bacon and the glossy finish of the brioche bun. The aesthetic aligns with urban luxury street food, utilizing deep blacks, fiery oranges, and mustard yellows. The image conveys a sense of indulgence and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-dT0bWhquy6qdQ-x-iziGNTZFILv9_S1fY1HUyhwhlvkOdOCIXg4hToqC1SoFrt9jNatbIytYnJ1O-LMAetRlSKjmDCAMlpBDFyQby6xxg03la-ATsa4zg-BSO0IXDpmTwdRxYXznD5xmi9rzk_pqCx-5_bv-6TzxsxtA9n-TeSVKghbYsnWjhKmFW2vGRir1X6-KYG5KtVIDH9GJ1PdRHQ5egVkdDYLB_KJbPQwDq1bPM2fIU2qHBp9lVWsGDsMytQeW6LRpZ_c"/>
+</div>
+<!-- Content Area -->
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Bacon Crunch</h4>
+<span class="font-price-display text-price-display text-secondary-container">$14.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 line-clamp-2">Doble patty smash, triple tocino ahumado crujiente, queso pepper jack, cebolla caramelizada y alioli de ajo asado.</p>
+<div class="mt-auto flex justify-end gap-2 border-t border-outline-variant/20 pt-4">
+<button class="p-2 text-on-surface-variant hover:text-secondary-container transition-colors rounded hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors rounded hover:bg-error/10">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Section: Acompa\u00f1antes -->
+<section>
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-4 mb-6">
+<h3 class="font-headline-md text-headline-md text-secondary-container">Acompa\u00f1antes</h3>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full text-xs font-bold">2 Platos</span>
+</div>
+<!-- Table Layout for smaller items to show variety in UI -->
+<div class="bg-[#252525] rounded-xl overflow-hidden border border-outline-variant/20">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 bg-surface-container-high text-on-surface-variant font-label-md text-label-md uppercase tracking-wider text-xs">
+<th class="p-4 w-16">Img</th>
+<th class="p-4">Nombre</th>
+<th class="p-4 hidden sm:table-cell">Descripci\u00f3n</th>
+<th class="p-4 w-24">Precio</th>
+<th class="p-4 w-24 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-variant/30 transition-colors group">
+<td class="p-4">
+<div class="w-12 h-12 rounded bg-surface-dim overflow-hidden">
+<img alt="Papas Trufadas" class="w-full h-full object-cover" data-alt="A close-up shot of golden, crispy french fries tossed in parmesan cheese and truffle oil, served in a sleek black metal basket. The lighting is moody and focused, casting soft shadows that emphasize the texture of the fries. The background is a dark, abstract texture to keep the focus entirely on the food. The style is modern, appetizing, and fits a high-end burger joint aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP8CXSp4O7_ThfrLM9IL7sopWT-bORKE4LKTtkAyMCAg7b5QNgE_hmqYNKAjrdl-dG6aMKpIhEnch0nkU-325wwCcNowoEC_nD9CXZ_t4NtnIyIVt1aFvV79375uNq9fwgg6uxJ2Cz2mMLPFhoiMktuHPzmyVXG_jE-_z2CMzofWOYu6C-4VnUFgtrXcGxjlxONbq5T8wzW2sijnIX-VguS_YFL2VbQXEQT4qbEz3Kdggbgf-oJKpA4wATBucegjMkIgELbJGVw5I"/>
+</div>
+</td>
+<td class="p-4 font-bold">Papas Trufadas</td>
+<td class="p-4 text-on-surface-variant text-sm hidden sm:table-cell">Papas corte fino con aceite de trufa blanca, parmesano fresco y perejil.</td>
+<td class="p-4 font-price-display text-secondary-container">$6.50</td>
+<td class="p-4">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 text-on-surface-variant hover:text-secondary-container rounded"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-1.5 text-on-surface-variant hover:text-error rounded"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Modal: Agregar/Editar Plato -->
+<div class="fixed inset-0 z-[100] hidden" id="dishModal">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+<!-- Modal Content -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-surface-container rounded-xl shadow-2xl border border-outline-variant flex flex-col max-h-[921px] overflow-hidden">
+<!-- Modal Header -->
+<div class="flex justify-between items-center p-6 border-b border-outline-variant/30 bg-surface-container-high">
+<h2 class="font-headline-md text-headline-md text-primary-container">Agregar Nuevo Plato</h2>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded-full hover:bg-surface-variant" onclick="closeModal()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Modal Body (Form) -->
+<div class="p-6 overflow-y-auto custom-scrollbar flex-1 bg-[#1A1A1A]">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Nombre -->
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Nombre del Plato</label>
+<input class="w-full bg-[#131313] border border-outline-variant/50 rounded-lg py-3 px-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors placeholder:text-on-surface-variant/50" placeholder="Ej: Triple Smash Extreme" type="text"/>
+</div>
+<!-- Categoría -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Categor\u00eda</label>
+<div class="relative">
+<select class="w-full bg-[#131313] border border-outline-variant/50 rounded-lg py-3 px-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors appearance-none">
+<option value="">Selecciona una categor\u00eda</option>
+<option value="smash">Smash Burgers</option>
+<option value="sides">Acompa\u00f1antes</option>
+<option value="drinks">Bebidas</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Precio -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Precio ($)</label>
+<input class="w-full bg-[#131313] border border-outline-variant/50 rounded-lg py-3 px-4 text-secondary-container font-price-display text-price-display focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="0.00" step="0.01" type="number"/>
+</div>
+<!-- Descripción -->
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">Descripci\u00f3n</label>
+<textarea class="w-full bg-[#131313] border border-outline-variant/50 rounded-lg py-3 px-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors placeholder:text-on-surface-variant/50 resize-none" placeholder="Ingredientes y detalles del plato..." rows="3"></textarea>
+</div>
+<!-- Imagen URL -->
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">URL de la Imagen</label>
+<div class="flex gap-3">
+<input class="flex-1 bg-[#131313] border border-outline-variant/50 rounded-lg py-3 px-4 text-on-surface focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors placeholder:text-on-surface-variant/50" placeholder="https://..." type="url"/>
+<div class="w-12 h-12 rounded bg-surface-dim border border-outline-variant/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant">image</span>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- Modal Footer -->
+<div class="p-6 border-t border-outline-variant/30 bg-surface-container-high flex justify-end gap-3">
+<button class="px-6 py-2.5 border border-outline text-on-surface rounded font-label-md text-label-md hover:bg-surface-variant transition-colors" onclick="closeModal()" type="button">
+                    Cancelar
+                </button>
+<button class="px-6 py-2.5 bg-primary-container text-on-primary-container rounded font-label-md text-label-md font-bold hover:shadow-[0_4px_14px_0_rgba(255,87,26,0.39)] transition-all" type="button">
+                    Guardar Plato
+                </button>
+</div>
+</div>
+</div>
+<!-- Simple Script for Modal Toggle -->
+<script>
+        const modal = document.getElementById('dishModal');
+        
+        function openModal() {
+            modal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity if we wanted to
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+</body></html>

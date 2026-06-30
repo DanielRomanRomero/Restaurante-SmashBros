@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smash Bros Burger - Admin Reservas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#ffb59e",
+                        "inverse-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-container": "#ff571a",
+                        "secondary-container": "#feb700",
+                        "secondary-fixed-dim": "#ffba20",
+                        "surface-bright": "#393939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#e6beb2",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#852400",
+                        "tertiary": "#c6c6c7",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#271900",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#909191",
+                        "on-tertiary": "#2f3131",
+                        "primary-fixed": "#ffdbd0",
+                        "on-primary-container": "#521300",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#6b4b00",
+                        "on-primary": "#5e1700",
+                        "inverse-on-surface": "#313030",
+                        "surface-dim": "#131313",
+                        "on-error": "#690005",
+                        "inverse-primary": "#ae3200",
+                        "surface-container-highest": "#353535",
+                        "outline-variant": "#5c4037",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "outline": "#ad897e",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed-dim": "#ffb59e",
+                        "secondary-fixed": "#ffdea8",
+                        "on-secondary": "#412d00",
+                        "primary": "#ffb59e",
+                        "secondary": "#ffdb9d",
+                        "surface-container": "#20201f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-container": "#282a2a",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max-width": "1200px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "price-display": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "price-display": ["22px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #1a1a1a;
+            color: #e5e2e1;
+        }
+        .bg-card { background-color: #252525; }
+        .urban-glow { box-shadow: 0 4px 20px rgba(255, 87, 26, 0.15); }
+        .urban-glow-hover:hover { box-shadow: 0 6px 25px rgba(255, 87, 26, 0.25); }
+        .input-underline:focus { border-bottom-color: #ff571a; }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased overflow-x-hidden min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col p-unit gap-4 border-r border-outline-variant bg-surface-container dark:bg-surface-container shadow-xl h-screen w-64 fixed left-0 top-0 z-50">
+<div class="px-4 py-6 border-b border-outline-variant/30">
+<h1 class="font-headline-md text-headline-md text-secondary-container font-black tracking-tighter uppercase">Panel Admin</h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Smash Bros Burger</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg hover:translate-x-1 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold hover:translate-x-1 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-label-md text-label-md">Reservas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-lg hover:translate-x-1 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-label-md text-label-md">Gestión Menú</span>
+</a>
+</div>
+<div class="mt-auto px-4 pb-6 pt-4 border-t border-outline-variant/30 flex items-center gap-3">
+<img alt="Admin Avatar" class="w-10 h-10 rounded-full border-2 border-primary-container object-cover" data-alt="A close up portrait photo of a professional restaurant manager with a modern urban look. High contrast lighting, professional yet approachable expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDumliWZCGszEtuZKYlVfxQr68G9l_tEjZIvLVZKPniSlXx2CSiOiXtVKFJ5q3Tb971tBeZSsjP8aFFOAVX3Q3de-6kctRLmy5-db3KTiAAMz-TO5sYsimpDgDvv3T_jvhPI5_ylndei78QvJAh9Wfko7Ixi7iGZAEUY-YYt74zf8pvbG_B6g4iR5O8U_tZDC3jfPGQnTEprHx6HShkBPNf9MKqqz7gZQDdE8aJ7mMz7pN6KebripHOCnlGd8fcsjQy2OZIJFFWvzk"/>
+<div class="flex-grow">
+<p class="font-label-md text-label-md text-on-surface truncate">Admin User</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop w-full max-w-container-max-width mx-auto">
+<!-- Header -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-extrabold uppercase">Gestión de Reservas</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Resumen operativo para el día de hoy.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container font-headline-md text-label-md px-6 py-3 rounded-lg flex items-center gap-2 hover:-translate-y-1 urban-glow-hover transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                NUEVA RESERVA
+            </button>
+</header>
+<!-- Summary Dashboard (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Total Today -->
+<div class="bg-card rounded-xl p-6 border-t-2 border-secondary-container shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Hoy</h3>
+<span class="material-symbols-outlined text-secondary-container" data-icon="group">group</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-xl text-headline-xl text-on-surface">42</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1"><span class="text-secondary-container">+15%</span> vs ayer</p>
+</div>
+</div>
+<!-- Pending -->
+<div class="bg-card rounded-xl p-6 border-t-2 border-primary-container shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pendientes</h3>
+<span class="material-symbols-outlined text-primary-container" data-icon="pending_actions">pending_actions</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-xl text-headline-xl text-on-surface">12</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Requieren confirmación</p>
+</div>
+</div>
+<!-- Cancelled -->
+<div class="bg-card rounded-xl p-6 border-t-2 border-outline-variant shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Canceladas</h3>
+<span class="material-symbols-outlined text-error" data-icon="cancel">cancel</span>
+</div>
+<div class="mt-4">
+<span class="font-headline-xl text-headline-xl text-on-surface">3</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Mesas liberadas</p>
+</div>
+</div>
+</section>
+<!-- Filters & Table Section -->
+<section class="bg-card rounded-xl shadow-lg border border-outline-variant/20 overflow-hidden">
+<!-- Filters Bar -->
+<div class="p-6 border-b border-outline-variant/30 flex flex-col lg:flex-row justify-between items-center gap-4 bg-surface-container-high/50">
+<div class="flex items-center gap-3 w-full lg:w-auto">
+<div class="relative w-full lg:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full bg-surface-dim border-b-2 border-outline-variant/50 focus:border-primary-container text-on-surface font-body-md py-2 pl-10 pr-4 input-underline transition-colors outline-none focus:ring-0" placeholder="Buscar cliente..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full lg:w-auto overflow-x-auto pb-2 lg:pb-0 hide-scrollbar">
+<input class="bg-surface-dim border-b-2 border-outline-variant/50 focus:border-primary-container text-on-surface font-body-md py-2 px-4 input-underline transition-colors outline-none focus:ring-0 min-w-[150px]" type="date"/>
+<select class="bg-surface-dim border-b-2 border-outline-variant/50 focus:border-primary-container text-on-surface font-body-md py-2 px-4 input-underline transition-colors outline-none focus:ring-0 min-w-[150px] appearance-none cursor-pointer">
+<option value="all">Todos los Estados</option>
+<option value="confirmed">Confirmadas</option>
+<option value="pending">Pendientes</option>
+<option value="cancelled">Canceladas</option>
+</select>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 bg-surface-container/50">
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Cliente</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Fecha / Hora</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-center">Pax</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Estado</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/30 transition-colors">
+<td class="py-4 px-6 text-on-surface font-semibold">Carlos Mendoza</td>
+<td class="py-4 px-6 text-on-surface-variant">Hoy, 20:30</td>
+<td class="py-4 px-6 text-center text-on-surface">4</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-container/20 text-secondary-container border border-secondary-container/30">
+                                    Confirmado
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-secondary-container mx-1 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="text-on-surface-variant hover:text-error mx-1 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/30 transition-colors bg-primary-container/5">
+<td class="py-4 px-6 text-on-surface font-semibold">Ana Silva</td>
+<td class="py-4 px-6 text-on-surface-variant">Hoy, 21:00</td>
+<td class="py-4 px-6 text-center text-on-surface">2</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container/20 text-primary-container border border-primary-container/30">
+                                    Pendiente
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-secondary-container mx-1 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="text-on-surface-variant hover:text-error mx-1 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant/10 hover:bg-surface-container/30 transition-colors">
+<td class="py-4 px-6 text-on-surface font-semibold">Grupo Tech Corp</td>
+<td class="py-4 px-6 text-on-surface-variant">Mañana, 14:00</td>
+<td class="py-4 px-6 text-center text-on-surface">12</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-container/20 text-secondary-container border border-secondary-container/30">
+                                    Confirmado
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-secondary-container mx-1 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="text-on-surface-variant hover:text-error mx-1 transition-colors"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/30 transition-colors">
+<td class="py-4 px-6 text-on-surface font-semibold text-opacity-50">Javier Ruiz</td>
+<td class="py-4 px-6 text-on-surface-variant text-opacity-50">Ayer, 19:00</td>
+<td class="py-4 px-6 text-center text-on-surface text-opacity-50">3</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error/10 text-error border border-error/20">
+                                    Cancelado
+                                </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="text-on-surface-variant hover:text-secondary-container mx-1 transition-colors opacity-50"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination (Simple) -->
+<div class="p-4 border-t border-outline-variant/30 flex justify-between items-center bg-surface-container/30">
+<span class="font-label-md text-label-md text-on-surface-variant">Mostrando 1-4 de 42</span>
+<div class="flex gap-2">
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-variant transition-colors disabled:opacity-50"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<button class="p-1 rounded text-on-surface-variant hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

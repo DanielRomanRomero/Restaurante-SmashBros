@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menú - Smash Bros Burger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#ffb59e",
+                        "inverse-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-container": "#ff571a",
+                        "secondary-container": "#feb700",
+                        "secondary-fixed-dim": "#ffba20",
+                        "surface-bright": "#393939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#e6beb2",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#852400",
+                        "tertiary": "#c6c6c7",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#271900",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#909191",
+                        "on-tertiary": "#2f3131",
+                        "primary-fixed": "#ffdbd0",
+                        "on-primary-container": "#521300",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#6b4b00",
+                        "on-primary": "#5e1700",
+                        "inverse-on-surface": "#313030",
+                        "surface-dim": "#131313",
+                        "on-error": "#690005",
+                        "inverse-primary": "#ae3200",
+                        "surface-container-highest": "#353535",
+                        "outline-variant": "#5c4037",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "outline": "#ad897e",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed-dim": "#ffb59e",
+                        "secondary-fixed": "#ffdea8",
+                        "on-secondary": "#412d00",
+                        "primary": "#ffb59e",
+                        "secondary": "#ffdb9d",
+                        "surface-container": "#20201f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-container": "#282a2a",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max-width": "1200px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "price-display": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "price-display": ["22px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: theme('colors.surface');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen font-body-md">
+<!-- TopAppBar -->
+<header class="bg-surface/90 dark:bg-surface/90 backdrop-blur-md font-headline-md text-headline-md font-bold text-primary-container dark:text-primary docked full-width top-0 sticky border-b border-outline-variant/30 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max-width mx-auto">
+<div class="font-headline-md text-headline-md font-black tracking-tighter text-primary-container dark:text-primary cursor-pointer active:scale-95 duration-200">
+                Smash Bros Burger
+            </div>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface hover:text-primary-container transition-colors font-headline-md text-headline-md font-bold hover:opacity-80 transition-all cursor-pointer active:scale-95 duration-200" href="#">Inicio</a>
+<a aria-current="page" class="text-primary-container dark:text-primary border-b-2 border-primary-container pb-1 font-headline-md text-headline-md font-bold hover:opacity-80 transition-all cursor-pointer active:scale-95 duration-200" href="#">Menú</a>
+<a class="text-on-surface hover:text-primary-container transition-colors font-headline-md text-headline-md font-bold hover:opacity-80 transition-all cursor-pointer active:scale-95 duration-200" href="#">Reservar</a>
+<a class="text-on-surface hover:text-primary-container transition-colors font-headline-md text-headline-md font-bold hover:opacity-80 transition-all cursor-pointer active:scale-95 duration-200" href="#">Contacto</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded font-headline-md text-headline-md font-bold hover:opacity-80 transition-all cursor-pointer active:scale-95 duration-200 shadow-sm">
+                Admin
+            </button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center w-full pt-12 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<!-- Header Section -->
+<section class="w-full text-center mb-16 space-y-4">
+<h1 class="font-headline-xl text-headline-xl text-inverse-surface uppercase">El Menú</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Calidad de restaurante en cada bocado. Street food elevada a la perfección.</p>
+</section>
+<!-- Category Filters -->
+<section class="w-full mb-16 overflow-x-auto pb-4 hide-scrollbar">
+<div class="flex gap-4 justify-start md:justify-center min-w-max">
+<button class="px-6 py-3 rounded-full font-label-md text-label-md uppercase bg-secondary-container text-on-primary-container transition-all active:scale-95">Todos</button>
+<button class="px-6 py-3 rounded-full font-label-md text-label-md uppercase border border-outline-variant text-on-surface hover:bg-surface-variant transition-all active:scale-95">Entrantes</button>
+<button class="px-6 py-3 rounded-full font-label-md text-label-md uppercase border border-outline-variant text-on-surface hover:bg-surface-variant transition-all active:scale-95">Burgers</button>
+<button class="px-6 py-3 rounded-full font-label-md text-label-md uppercase border border-outline-variant text-on-surface hover:bg-surface-variant transition-all active:scale-95">Postres</button>
+<button class="px-6 py-3 rounded-full font-label-md text-label-md uppercase border border-outline-variant text-on-surface hover:bg-surface-variant transition-all active:scale-95">Bebidas</button>
+</div>
+</section>
+<!-- Menu Grid: Burgers -->
+<section class="w-full mb-24">
+<h2 class="font-headline-lg text-headline-lg text-secondary-container mb-8 uppercase flex items-center gap-4">
+<span class="material-symbols-outlined text-[32px] filled text-primary-container" data-icon="local_fire_department">local_fire_department</span>
+                Nuestras Burgers Legendarias
+            </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="bg-surface-container-high rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-container/20 transition-all duration-300 flex flex-col group border border-surface-bright">
+<div class="relative h-64 overflow-hidden bg-surface-container">
+<img alt="Classic Smash Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A mouth-watering, high-contrast, professional food photography shot of a classic double smash burger. Two perfectly seared, crispy-edged beef patties are stacked with melting yellow American cheese, fresh green lettuce, red tomato slices, and a vibrant orange secret sauce, all housed in a toasted, glossy brioche bun. The burger sits on a dark, textured slate surface. The lighting is dramatic, casting deep shadows that emphasize the texture of the meat and the sheen of the sauce. In the background, out of focus, are hints of a modern, dark-themed urban restaurant setting with warm ambient light. The overall mood is intense, appetizing, and premium, perfectly matching an 'Urban Luxury Street Food' aesthetic with its rich colors and dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnCt-OjeyGKIqDqxMMi6qzfTNiOo6c3_qtaSGOPzwJYgJDbxEliLLQ89vyCShjAMuMLjD_wupTqae13rGXSTVsUWkuyCac0RCC-80GlehFD7n5i0oi89lxEH07fNfj33qAZtGEZIAD6YEoWmpo8D6_AlnwC04qd3ipC52x4zzyKI3AGj307J0ICJ7NsUls1ZkOqyPpobtWGmwMQWfww79dTCZpnWJ9_j8Zt5X82CwtOL-b83CboLorS4AIJqElYdTuLG2i5XrwVDQ"/>
+<div class="absolute top-4 right-4 bg-primary-container text-on-primary-container px-3 py-1 rounded font-label-md text-label-md uppercase shadow-md">
+                            Best Seller
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-inverse-surface uppercase">Classic Smash</h3>
+<span class="font-price-display text-price-display text-secondary-container">12.50€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Dos carnes smashed de 90g, doble queso americano fundido, pepinillos encurtidos caseros, cebolla picada y nuestra salsa secreta en pan brioche artesanal.
+                        </p>
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-headline-md text-headline-md uppercase rounded hover:bg-opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(255,87,26,0.39)]">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                            Pedir Ahora
+                        </button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-high rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-container/20 transition-all duration-300 flex flex-col group border border-surface-bright">
+<div class="relative h-64 overflow-hidden bg-surface-container">
+<img alt="Truffle Mushroom Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A gourmet mushroom and truffle smash burger presented in a moody, high-contrast urban setting. The burger features two deeply browned smashed beef patties generously topped with melted white provolone cheese, sautéed dark brown cremini mushrooms, and a rich, creamy truffle mayo. The artisanal brioche bun is toasted to a perfect golden brown. The scene is lit with striking, directional lighting that highlights the glossy sauce and the rustic textures of the ingredients against a dark, matte black background. The visual style is premium and bold, evoking an exclusive, high-end street food experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa4gQgjkNKXEDws6BR2Y0jSxdZQECIHrCAH-z-_oF7s06Gq-Lm7_ZlFmrGgQ72aTyAdgr1e3a2asTImuk5TBvSu0aDUhUzLekVPaI1BlFb-9NjKFZyuWW-YMox0mqAMJLJvaMoDGuB9mAHeuvcUkhVbmYrPtAzxdjC1W6BvHbSrI29EYzjaxxwbExfZXdJKl9MYcSq3O5ggDgj0w-nhQEqgab6pC-Cr7WeiqYbtUm1Gsvedzvjd2cA-TsF9oIl1k7ZVoWV8udiPRk"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-inverse-surface uppercase">Truffle King</h3>
+<span class="font-price-display text-price-display text-secondary-container">14.00€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Dos carnes smashed, queso provolone, champiñones salteados con tomillo, cebolla caramelizada y una lujosa mayonesa de trufa negra.
+                        </p>
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-headline-md text-headline-md uppercase rounded hover:bg-opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(255,87,26,0.39)]">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                            Pedir Ahora
+                        </button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-high rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary-container/20 transition-all duration-300 flex flex-col group border border-surface-bright">
+<div class="relative h-64 overflow-hidden bg-surface-container">
+<img alt="Spicy BBQ Bacon Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A towering, intensely appetizing spicy BBQ bacon smash burger set against a stark, deep charcoal background. The burger boasts two crispy smashed beef patties, dripping with melted cheddar cheese. Thick cuts of smoky, dark red bacon cross over the cheese, complemented by bright green jalapeño slices and a glossy, dark reddish-brown BBQ sauce. The brioche bun is perfectly domed and toasted. The lighting is cinematic, utilizing stark contrasts to emphasize the vibrant colors of the ingredients against the dark surroundings, perfectly capturing the bold, energetic 'Urban Luxury Street Food' aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZpWpOPFldzlolfgVYrXJOAz9RwF41xiGwSK-An-eWORPvPdcNDAkok9XB8gZov23HC38WXVKfXJ422eeOwL-6gKv566ST07Syq0SrnU4N4lQw9Z4O6SKM8B1-moiPkWB6bcobjjtiZGCmS7qVPuEwU1JI0Zo0tb5XCNUfhZOQkwJ-W-Ty80O46SQO_UxfyfSdExsGVbqNsMUDMxiiRUaIHze7Ixkpe2pyaJcAEPJs3NGlI66A2dVtrNGlq4iC6fqZOTjXLIdW2qA"/>
+<div class="absolute top-4 right-4 bg-error text-on-error px-3 py-1 rounded font-label-md text-label-md uppercase shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="whatshot">whatshot</span> Picante
+                        </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-inverse-surface uppercase">Hellfire Bacon</h3>
+<span class="font-price-display text-price-display text-secondary-container">13.50€</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">
+                            Para los valientes. Doble carne, queso cheddar curado, bacon crujiente ahumado, jalapeños frescos y nuestra salsa BBQ picante con habanero.
+                        </p>
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-headline-md text-headline-md uppercase rounded hover:bg-opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(255,87,26,0.39)]">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                            Pedir Ahora
+                        </button>
+</div>
+</article>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest text-secondary-container dark:text-secondary font-body-md text-body-md font-headline-md text-headline-md font-extrabold text-primary-container full-width border-t border-outline-variant flat no shadows opacity-100 transition-opacity">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-12 gap-unit max-w-container-max-width mx-auto">
+<div class="text-on-surface-variant text-center md:text-left mb-4 md:mb-0">
+                © 2024 Smash Bros Burger. Urban Luxury Street Food.
+            </div>
+<nav class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary-container hover:underline transition-colors" href="#">Privacidad</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:underline transition-colors" href="#">Términos</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:underline transition-colors" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:underline transition-colors" href="#">Contacto</a>
+</nav>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smash Bros Burger - Urban Luxury Street Food</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#ffb59e",
+                        "inverse-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-container": "#ff571a",
+                        "secondary-container": "#feb700",
+                        "secondary-fixed-dim": "#ffba20",
+                        "surface-bright": "#393939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#e6beb2",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#852400",
+                        "tertiary": "#c6c6c7",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#271900",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#909191",
+                        "on-tertiary": "#2f3131",
+                        "primary-fixed": "#ffdbd0",
+                        "on-primary-container": "#521300",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#6b4b00",
+                        "on-primary": "#5e1700",
+                        "inverse-on-surface": "#313030",
+                        "surface-dim": "#131313",
+                        "on-error": "#690005",
+                        "inverse-primary": "#ae3200",
+                        "surface-container-highest": "#353535",
+                        "outline-variant": "#5c4037",
+                        "on-secondary-fixed-variant": "#5e4200",
+                        "outline": "#ad897e",
+                        "on-primary-fixed": "#3a0b00",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed-dim": "#ffb59e",
+                        "secondary-fixed": "#ffdea8",
+                        "on-secondary": "#412d00",
+                        "primary": "#ffb59e",
+                        "secondary": "#ffdb9d",
+                        "surface-container": "#20201f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-container": "#282a2a",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353535"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max-width": "1200px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "price-display": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "price-display": ["22px", { "lineHeight": "24px", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #1a1a1a; /* Deep Charcoal Fallback */
+            color: #e5e2e1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom glow effect for urban vibe */
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(255, 87, 26, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-surface/90 dark:bg-surface/90 backdrop-blur-md font-headline-md text-headline-md font-bold docked full-width top-0 sticky border-b border-outline-variant/30 shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
+<!-- Brand Logo -->
+<a class="font-headline-md text-headline-md font-black tracking-tighter text-primary-container dark:text-primary flex items-center gap-2 style_universal_hover" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                Smash Bros Burger
+            </a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary-container dark:text-primary border-b-2 border-primary-container pb-1 style_interactions" href="#inicio">Inicio</a>
+<a class="text-on-surface hover:text-primary-container transition-colors style_interactions" href="#menu">Menú</a>
+<a class="text-on-surface hover:text-primary-container transition-colors style_interactions" href="#reservar">Reservar</a>
+<a class="text-on-surface hover:text-primary-container transition-colors style_interactions" href="#contacto">Contacto</a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center gap-4">
+<button class="hidden md:flex items-center justify-center bg-transparent border-2 border-primary-container text-primary-container hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 px-6 py-2 rounded-full font-headline-md text-sm cursor-pointer active:scale-95">
+                    Admin
+                </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface hover:text-primary-container p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center overflow-hidden" id="inicio">
+<!-- Hero Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Smash Burger Hero" class="w-full h-full object-cover opacity-40 mix-blend-overlay" data-alt="A dramatic, close-up shot of a perfectly smashed double cheeseburger with melting cheese and crispy edges, sitting on a dark textured slate surface. The scene is illuminated by dramatic, high-contrast studio lighting with warm, fiery orange accents that highlight the juicy texture of the meat and the glossy bun. The background is deeply shadowed, emphasizing an urban, luxurious, and bold culinary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlfY7l-0Gg65z7Gk7FUngrl6E6GHg5m1FBUvuG4fnBzjlTge_JOJrEO4bKyjT4V0FvcvAbKNA-1UlbaTuCnWgmf_4DKzqSIGhd862sqQqc1Tw_avquHV1TnqhFrGoeXXQEWvCWZjxJ_ssqEuzoTAftwenz4wXs2jaBCVS071K26REvyAmG4j1CxYYS4Tv1td7Ano8nSdfNGhHi2V0MoazWvWRptPcOtEZ4kukN3oVk8QmD_Nf0kJMeKzskqZ-6bu_wMRiMNm6zEiA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center px-margin-mobile md:px-margin-desktop max-w-[800px] mt-16">
+<span class="font-label-md text-label-md text-secondary-container tracking-[0.2em] uppercase mb-4">Urban Luxury Street Food</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-6 uppercase leading-tight drop-shadow-lg">
+                    LA REVOLUCIÓN DEL <span class="text-primary-container">SMASH</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Técnica perfecta. Ingredientes premium. La experiencia callejera llevada a su máxima expresión gastronómica en el corazón de la ciudad.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="bg-primary-container text-on-primary-container font-headline-md text-[18px] py-4 px-10 rounded-full hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,87,26,0.4)] transition-all duration-300 uppercase tracking-wide">
+                        Reservar Mesa
+                    </button>
+<button class="bg-transparent border-2 border-secondary-container text-secondary-container font-headline-md text-[18px] py-4 px-10 rounded-full hover:bg-secondary-container/10 transition-all duration-300 uppercase tracking-wide">
+                        Ver Carta
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Menu Section -->
+<section class="py-[100px] px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto" id="menu">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Top <span class="text-secondary-container">Smashed</span></h2>
+<div class="w-24 h-1 bg-primary-container mx-auto"></div>
+</div>
+<!-- Bento Grid Layout for Burgers -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Burger Card 1 (Hero) -->
+<div class="col-span-1 md:col-span-2 bg-surface-container-high rounded-xl overflow-hidden group relative flex flex-col md:flex-row shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+<div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+<img alt="The Boss Smash" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A premium double smash burger with thick bacon slices, melted cheddar, and caramelized onions, presented on a dark, moody wooden table. The lighting is cinematic, focusing intensely on the burger's textures, creating a luxurious and mouth-watering street food vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA96th5985O2r-2Vp9B1q_FkbInaUz1h3d_QngLpjueXvFMVB4pKakOLBXG-Q7AqiooniuRHQqjo6ujGh-efz_IFXdl1QCUPvqjGvF692f6726AwldtQ_IZo3orkYTQTSxmNO_a2mlGN7Jn9s7dP0E-ZesDh-4g3noEwur8De-YBhR0uY_L-J6rXbyFsc7m5K-1VQjCPLCzd3kq_nPhon-ajYq2yhTEQdnPch8b-TOpzxCoXrFBWgHUjxgMVc_VFynDCZgX_YdqlNU"/>
+<div class="absolute top-4 left-4 bg-primary-container text-on-primary-container font-label-md px-3 py-1 rounded uppercase tracking-wider text-xs font-bold">
+                            Signature
+                        </div>
+</div>
+<div class="w-full md:w-1/2 p-8 flex flex-col justify-center bg-surface-container-highest">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface uppercase">The Boss</h3>
+<span class="font-price-display text-price-display text-secondary-container">16€</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">
+                            Doble smash patty de vaca rubia gallega madurada 45 días, cheddar curado, bacon ahumado en madera de manzano, cebolla caramelizada y nuestra salsa secreta "Black Truffle".
+                        </p>
+<div class="flex gap-2 flex-wrap mt-auto">
+<span class="flex items-center gap-1 text-sm text-primary font-label-md"><span class="material-symbols-outlined text-[16px]">egg_alt</span> Doble Carne</span>
+<span class="flex items-center gap-1 text-sm text-primary font-label-md"><span class="material-symbols-outlined text-[16px]">local_pizza</span> Trufa</span>
+</div>
+</div>
+</div>
+<!-- Burger Card 2 -->
+<div class="col-span-1 bg-surface-container-high rounded-xl overflow-hidden group shadow-xl flex flex-col transition-transform duration-500 hover:-translate-y-2">
+<div class="w-full h-48 relative overflow-hidden">
+<img alt="Spicy Urban" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A spicy smash burger with crispy jalapeños, fiery orange sauce, and melted pepper jack cheese on a sleek black slate board. High contrast, dramatic lighting emphasizing the spicy, bold nature of the urban food." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuyzOlpS7-7S2OluhiJisl-Q85EQVYESY6haRuLTbNAEN4yOqKjcFRP_ymYgKB0wXjATWc1D0-TdgX9jRtpp4h-PDkgUyvVFTCptioTcJ1Y0HzBHsKxBD0rFAJrVCILCVlM38-GIeYffSIt1JciGK1FfAT6WQfFlKBdYAA_DTOXrFRsFuGJmV9zuE0N88U1jq-U0sR9reRaxKTkGL1CziUlUfs_93z9za_s9OMYsYMyg1SXxNL9lcLgTXK_RlzsCFP66izFXj7TqA"/>
+</div>
+<div class="p-6 flex-grow flex flex-col bg-[#252525]">
+<div class="flex justify-between items-center mb-3">
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface uppercase">Spicy Urban</h3>
+<span class="font-price-display text-[20px] font-bold text-secondary-container">14€</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm mb-4 flex-grow">
+                            Smash patty de buey, queso pepper jack fundido, jalapeños encurtidos crujientes, cebolla morada fresca y mayonesa de sriracha casera.
+                        </p>
+</div>
+</div>
+<!-- Burger Card 3 -->
+<div class="col-span-1 bg-surface-container-high rounded-xl overflow-hidden group shadow-xl flex flex-col transition-transform duration-500 hover:-translate-y-2">
+<div class="w-full h-48 relative overflow-hidden">
+<img alt="Classic Gold" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A classic smash burger with perfect lacy edges, bright yellow American cheese, pickles, and ketchup on a dark textured background. Minimalist but powerful presentation highlighting the quality of the smash technique." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEUicEn5XDTI7mYg37GrD_cAoFw_dn-MyQNeDeXdtPgDpJfmEAPSHnbBDN6tcX1EnUsJmzICxzpuBUdzpVOiH3-L7qyjpXNn52xlfG96H_lmdzXap5A5FLaT08j07BT677Wf4-zrRP4Ug1h-p6nWBw2oCYDztqi1PWmDQXFxDZd47baku_in2dKZ7yW8rrqKcx1JWjTvT8Kfan4O6Zse4zST5i0o-w2UjeRsh21SK0dc5yns8JpRLl_SwDZ75KoQtw87HHQXGfpII"/>
+</div>
+<div class="p-6 flex-grow flex flex-col bg-[#252525]">
+<div class="flex justify-between items-center mb-3">
+<h3 class="font-headline-md text-[20px] font-bold text-on-surface uppercase">Classic Gold</h3>
+<span class="font-price-display text-[20px] font-bold text-secondary-container">12€</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm mb-4 flex-grow">
+                            La esencia pura. Smash patty con costra perfecta, doble American cheese, pepinillos encurtidos artesanales, kétchup y mostaza.
+                        </p>
+</div>
+</div>
+<!-- View All Link -->
+<div class="col-span-1 md:col-span-2 flex items-center justify-center md:justify-start p-6">
+<a class="group flex items-center gap-3 text-secondary-container font-headline-md text-[18px] uppercase hover:text-primary-container transition-colors" href="#">
+                        Ver Carta Completa 
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- About Section (Asymmetric Layout) -->
+<section class="py-[120px] bg-surface-container-lowest relative overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-surface-variant/20 -skew-x-12 transform origin-top-right"></div>
+<div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop relative z-10 flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2 order-2 md:order-1 relative">
+<div class="absolute -inset-4 bg-primary-container/10 border border-primary-container/30 rounded-xl transform rotate-3"></div>
+<img alt="Smashing process" class="relative w-full h-[500px] object-cover rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] grayscale hover:grayscale-0 transition-all duration-700" data-alt="A moody, high-end street food cooking environment. A chef's hands aggressively smashing a burger patty on a blazing hot cast iron griddle, flames slightly visible, smoke rising. Shot in dark, moody tones with bright orange fire reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLsWy0x1uQQdx4u1euiZJZajX5JWRkYRr3vUHRC9kmQ0vZ-tCnbXGu5bdhiSQdXccDPxvqyGvWoUwvxS5M8GsrcIYa4sL1Eg7FFNMrnNK8Zw1XswNZyKugMgl4T0r-iQbpQX6jiOOd4cx0ql2FSoNMQP2QXnvFojFZk2fs5bgmJfMIWbN1_8uDd6hmafBFVqjlHSmtU83CNkNBj2RkOdT2LP4Cdfq4ga3G46tMMwqMVq1laCDvSpUfWM-bx1FAqIiWZzylBnDRHdE"/>
+</div>
+<div class="w-full md:w-1/2 order-1 md:order-2">
+<span class="font-label-md text-primary-container uppercase tracking-widest mb-4 block">Nuestra Filosofía</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-8 leading-tight">
+                        El Asfalto <br/>
+<span class="text-surface-variant opacity-50">Encuentra</span> <br/>
+                        La Alta Cocina
+                    </h2>
+<p class="font-body-lg text-on-surface-variant mb-6 border-l-2 border-secondary-container pl-6 py-2">
+                        No hacemos hamburguesas. Diseñamos experiencias de impacto. Aplicamos la rigurosidad y técnica de la alta gastronomía al formato más salvaje y honesto del street food.
+                    </p>
+<p class="font-body-md text-on-surface-variant mb-10 opacity-80">
+                        Cada 'smash' es una reacción de Maillard calculada para maximizar el sabor. Cada ingrediente es seleccionado con obsesión. Este es nuestro tributo a la cultura urbana, servido en bandeja de plata.
+                    </p>
+<button class="bg-transparent text-on-surface border-b border-primary-container pb-1 font-label-md uppercase tracking-wider hover:text-primary-container transition-colors flex items-center gap-2">
+                        Conoce al Equipo <span class="material-symbols-outlined text-[18px]">east</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant font-body-md text-body-md w-full">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 gap-8 max-w-container-max-width mx-auto">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-headline-md text-headline-md font-extrabold text-primary-container flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                    SMASH BROS
+                </span>
+<p class="text-secondary-container dark:text-secondary opacity-70 text-sm">
+                    © 2024 Smash Bros Burger. Urban Luxury Street Food.
+                </p>
+</div>
+<!-- Links -->
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-primary-container hover:underline opacity-100 transition-opacity" href="#">Privacidad</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:underline opacity-100 transition-opacity" href="#">Términos</a>
+<a class="text-on-surface-variant hover:text-primary-container hover:underline opacity-100 transition-opacity flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span> Instagram
+                </a>
+<a class="text-on-surface-variant hover:text-primary-container hover:underline opacity-100 transition-opacity" href="#contacto">Contacto</a>
+</nav>
+</div>
+</footer>
+</body></html>

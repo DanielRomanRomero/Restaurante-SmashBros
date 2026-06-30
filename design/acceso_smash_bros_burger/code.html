@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smash Bros Burger - Login &amp; Signup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-tint": "#ffb59e",
+                            "inverse-surface": "#e5e2e1",
+                            "surface": "#131313",
+                            "on-tertiary-fixed": "#1a1c1c",
+                            "error": "#ffb4ab",
+                            "tertiary-fixed": "#e2e2e2",
+                            "primary-container": "#ff571a",
+                            "secondary-container": "#feb700",
+                            "secondary-fixed-dim": "#ffba20",
+                            "surface-bright": "#393939",
+                            "surface-container-lowest": "#0e0e0e",
+                            "on-surface-variant": "#e6beb2",
+                            "surface-container-low": "#1c1b1b",
+                            "on-primary-fixed-variant": "#852400",
+                            "tertiary": "#c6c6c7",
+                            "tertiary-fixed-dim": "#c6c6c7",
+                            "on-secondary-fixed": "#271900",
+                            "on-error-container": "#ffdad6",
+                            "tertiary-container": "#909191",
+                            "on-tertiary": "#2f3131",
+                            "primary-fixed": "#ffdbd0",
+                            "on-primary-container": "#521300",
+                            "error-container": "#93000a",
+                            "on-secondary-container": "#6b4b00",
+                            "on-primary": "#5e1700",
+                            "inverse-on-surface": "#313030",
+                            "surface-dim": "#131313",
+                            "on-error": "#690005",
+                            "inverse-primary": "#ae3200",
+                            "surface-container-highest": "#353535",
+                            "outline-variant": "#5c4037",
+                            "on-secondary-fixed-variant": "#5e4200",
+                            "outline": "#ad897e",
+                            "on-primary-fixed": "#3a0b00",
+                            "on-background": "#e5e2e1",
+                            "primary-fixed-dim": "#ffb59e",
+                            "secondary-fixed": "#ffdea8",
+                            "on-secondary": "#412d00",
+                            "primary": "#ffb59e",
+                            "secondary": "#ffdb9d",
+                            "surface-container": "#20201f",
+                            "on-tertiary-fixed-variant": "#454747",
+                            "on-tertiary-container": "#282a2a",
+                            "background": "#131313",
+                            "on-surface": "#e5e2e1",
+                            "surface-container-high": "#2a2a2a",
+                            "surface-variant": "#353535"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "unit": "8px",
+                            "container-max-width": "1200px",
+                            "gutter": "24px",
+                            "margin-desktop": "64px",
+                            "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                            "headline-lg-mobile": ["Montserrat"],
+                            "label-md": ["Inter"],
+                            "headline-md": ["Montserrat"],
+                            "headline-xl": ["Montserrat"],
+                            "price-display": ["Montserrat"],
+                            "headline-lg": ["Montserrat"],
+                            "body-lg": ["Inter"],
+                            "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                            "headline-lg-mobile": ["32px", {"lineHeight": "38px", "fontWeight": "800"}],
+                            "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                            "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                            "price-display": ["22px", {"lineHeight": "24px", "fontWeight": "700"}],
+                            "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-surface');
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .form-input-urban {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid theme('colors.outline-variant');
+            border-radius: 0;
+            padding: 12px 0;
+            color: theme('colors.on-surface');
+            transition: all 0.3s ease;
+        }
+        
+        .form-input-urban:focus {
+            outline: none;
+            border-bottom-color: theme('colors.primary-container');
+            box-shadow: none;
+        }
+        
+        .btn-primary-urban {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.on-primary-container');
+            border-radius: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary-urban:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(255, 87, 26, 0.4);
+        }
+        
+        .btn-primary-urban:active {
+            transform: translateY(0);
+        }
+        
+        .split-image {
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .tab-active {
+            color: theme('colors.primary-container');
+            border-bottom: 2px solid theme('colors.primary-container');
+        }
+        
+        .tab-inactive {
+            color: theme('colors.on-surface-variant');
+            border-bottom: 2px solid transparent;
+        }
+        
+        /* Floating label magic */
+        .input-group {
+            position: relative;
+            margin-bottom: 32px;
+        }
+        
+        .input-label {
+            position: absolute;
+            left: 0;
+            top: 12px;
+            color: theme('colors.on-surface-variant');
+            transition: 0.2s ease all;
+            pointer-events: none;
+            font-family: theme('fontFamily.label-md');
+        }
+        
+        .form-input-urban:focus ~ .input-label,
+        .form-input-urban:not(:placeholder-shown) ~ .input-label {
+            top: -20px;
+            font-size: 12px;
+            color: theme('colors.primary-container');
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row font-body-md">
+<!-- Left Side - Image Canvas -->
+<div class="hidden md:block w-full md:w-1/2 min-h-screen split-image relative" data-alt="A hyper-realistic, mouth-watering close-up photography of a gourmet smash burger. The burger features crispy, perfectly caramelized beef patties, melting bright yellow American cheese, and fresh pickles spilling out of a glossy, toasted brioche bun. The lighting is dramatic and moody, high-contrast urban luxury style, emphasizing the textures of the meat and the sheen of the grease against a dark, gritty charcoal background. High definition, commercial food photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnaWZ3S5-QVpasaLCr0rD0YxwaX7Aht2uGRGvNhTZsKgAGFq5W05Jl3GWUazahfJ2TKejdt5qG_0VzpnHftBhX7Yv8OCEcDSX8prhYd_crnsQ38cLHFPg8kKyd96uYJgfN8K96IrkMp62reYdGX83PUWQjx5nuDh62q2HP-1IKPeRbMXlI99BXm7Pd7fMIojilTY3b7hxn30So1VzvCoBTR2Mv3kdSU-D06RL-yRvVICmDA1TRU9K5ZuQNO_TUk1hdZ_4_xo9oaVI');">
+<!-- Gradient Overlay for depth -->
+<div class="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent"></div>
+<!-- Brand Mark Overlay -->
+<div class="absolute top-margin-desktop left-margin-desktop z-10 flex items-center gap-4">
+<div class="w-16 h-16 bg-surface-container rounded-lg flex items-center justify-center border border-outline-variant shadow-lg">
+<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-black tracking-tighter text-on-surface uppercase leading-none">Smash Bros</span>
+<span class="font-label-md text-label-md text-secondary-container tracking-widest uppercase">Urban Luxury</span>
+</div>
+</div>
+<!-- Atmospheric text -->
+<div class="absolute bottom-margin-desktop left-margin-desktop z-10 max-w-md">
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-4">Siente<br/>el Asfalto.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Alta cocina callejera directa a tus sentidos. Inicia sesión para continuar tu experiencia.</p>
+</div>
+</div>
+<!-- Right Side - Form Canvas -->
+<div class="w-full md:w-1/2 min-h-screen bg-surface flex flex-col justify-center px-margin-mobile md:px-[10%] py-12 relative overflow-hidden">
+<!-- Mobile Brand Header (Visible only on mobile) -->
+<div class="md:hidden flex flex-col items-center justify-center mb-12 gap-4">
+<div class="w-16 h-16 bg-surface-container rounded-lg flex items-center justify-center border border-outline-variant shadow-lg">
+<span class="material-symbols-outlined text-4xl text-primary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-black tracking-tighter text-on-surface uppercase text-center">Smash Bros</h1>
+</div>
+<div class="w-full max-w-md mx-auto relative z-10">
+<!-- Auth Toggles -->
+<div class="flex gap-8 mb-12 border-b border-surface-variant">
+<button class="pb-4 font-headline-md text-headline-md tab-active transition-all" id="btn-login" onclick="switchTab('login')">
+                    Entrar
+                </button>
+<button class="pb-4 font-headline-md text-headline-md tab-inactive transition-all" id="btn-signup" onclick="switchTab('signup')">
+                    Crear Cuenta
+                </button>
+</div>
+<!-- Login Form -->
+<form class="block animate-fade-in" id="form-login">
+<div class="input-group">
+<input class="form-input-urban w-full font-body-lg text-body-lg" id="login-email" placeholder=" " required="" type="email"/>
+<label class="input-label" for="login-email">Correo Electrónico</label>
+</div>
+<div class="input-group mb-6">
+<input class="form-input-urban w-full font-body-lg text-body-lg" id="login-password" placeholder=" " required="" type="password"/>
+<label class="input-label" for="login-password">Contraseña</label>
+</div>
+<div class="flex justify-end mb-8">
+<a class="font-label-md text-label-md text-secondary-container hover:text-secondary transition-colors" href="#">¿Olvidé mi contraseña?</a>
+</div>
+<button class="btn-primary-urban w-full py-4 font-headline-md text-headline-md uppercase tracking-wider mb-6 flex justify-center items-center gap-2" type="submit">
+                    Iniciar Sesión
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="relative flex py-5 items-center mb-6">
+<div class="flex-grow border-t border-surface-variant"></div>
+<span class="flex-shrink-0 mx-4 font-label-md text-label-md text-on-surface-variant">O continúa con</span>
+<div class="flex-grow border-t border-surface-variant"></div>
+</div>
+<button class="w-full py-4 bg-surface-container border border-outline-variant text-on-surface font-headline-md text-headline-md hover:bg-surface-variant transition-colors flex justify-center items-center gap-3" type="button">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Google
+                </button>
+</form>
+<!-- Signup Form (Hidden by default) -->
+<form class="hidden animate-fade-in" id="form-signup">
+<div class="input-group">
+<input class="form-input-urban w-full font-body-lg text-body-lg" id="signup-name" placeholder=" " required="" type="text"/>
+<label class="input-label" for="signup-name">Nombre Completo</label>
+</div>
+<div class="input-group">
+<input class="form-input-urban w-full font-body-lg text-body-lg" id="signup-email" placeholder=" " required="" type="email"/>
+<label class="input-label" for="signup-email">Correo Electrónico</label>
+</div>
+<div class="input-group mb-12">
+<input class="form-input-urban w-full font-body-lg text-body-lg" id="signup-password" placeholder=" " required="" type="password"/>
+<label class="input-label" for="signup-password">Crear Contraseña</label>
+</div>
+<button class="btn-primary-urban w-full py-4 font-headline-md text-headline-md uppercase tracking-wider mb-6 flex justify-center items-center gap-2" type="submit">
+                    Unirse a la Calle
+                    <span class="material-symbols-outlined">local_fire_department</span>
+</button>
+</form>
+</div>
+<!-- Decorative subtle background elements -->
+<div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+<script>
+        function switchTab(tab) {
+            const loginForm = document.getElementById('form-login');
+            const signupForm = document.getElementById('form-signup');
+            const btnLogin = document.getElementById('btn-login');
+            const btnSignup = document.getElementById('btn-signup');
+
+            if (tab === 'login') {
+                loginForm.classList.remove('hidden');
+                loginForm.classList.add('block');
+                signupForm.classList.remove('block');
+                signupForm.classList.add('hidden');
+                
+                btnLogin.classList.add('tab-active');
+                btnLogin.classList.remove('tab-inactive');
+                btnSignup.classList.add('tab-inactive');
+                btnSignup.classList.remove('tab-active');
+            } else {
+                signupForm.classList.remove('hidden');
+                signupForm.classList.add('block');
+                loginForm.classList.remove('block');
+                loginForm.classList.add('hidden');
+                
+                btnSignup.classList.add('tab-active');
+                btnSignup.classList.remove('tab-inactive');
+                btnLogin.classList.add('tab-inactive');
+                btnLogin.classList.remove('tab-active');
+            }
+        }
+    </script>
+</body></html>
