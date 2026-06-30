@@ -55,8 +55,8 @@ src/
 
 ```bash
 # 1. Clona el repositorio
-git clone https://github.com/tu-usuario/smash-bros-burger.git
-cd smash-bros-burger
+git clone https://github.com/DanielRomanRomero/Restaurante-SmashBros.git
+cd Restaurante-SmashBros
 
 # 2. Instala las dependencias
 npm install
